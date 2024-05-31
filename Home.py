@@ -11,10 +11,10 @@ request = requests.get(url)
 data = request.json()
 
 # WebSite/WebApp to output the Astronomy Photo of the Day
-st.set_page_config(layout="wide")
+st.set_page_config(layout="centered")
 
 # Get image from request and import to readable format for Streamlit
-image_url = data["url"]
+image_url = data["hdurl"]
 
 # Download the image
 image_filepath = "img.png"
