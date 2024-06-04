@@ -36,5 +36,3 @@ else:
 st.write(data.get("explanation", "No explanation available."))
 
 
-st.text("Copyright: " + data["copyright"] + " " +  data["date"])
-
