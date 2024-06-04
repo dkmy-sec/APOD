@@ -2,7 +2,7 @@ import requests
 import streamlit as st
 from datetime import date
 
-api_key = "TF4OHxmlQC89n13wuSmNQCluhezSlmJPV3OAbh6k"
+api_key = st.secrets["my_api_key"]
 
 # Make request
 @st.cache_data(ttl=86400)
@@ -29,8 +29,12 @@ if "media_type" in data and data["media_type"] == "video":
     st.video(data["url"], format="video/mp4")
 elif "hdurl" in data:
     st.image(data["hdurl"], caption=data["title"])
+    st.subheader(data["title"])
 else:
     st.write("No image or video available for this date.")
 
 st.write(data.get("explanation", "No explanation available."))
+
+
+st.text("Copyright: " + data["copyright"] + " " +  data["date"])
 
